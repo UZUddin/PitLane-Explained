@@ -1,0 +1,15 @@
+streamlit
+langchain
+langchain-community
+langchain-classic
+langchain-core
+langchain-huggingface
+langchain-chroma
+langchain-replicate @ git+https://github.com/ibm-granite-community/langchain-replicate.git
+sentence-transformers
+transformers==4.49.0
+chromadb
+docling
+replicate
+ibm-granite-community-utils @ git+https://github.com/ibm-granite-community/utils.git
+pillow
