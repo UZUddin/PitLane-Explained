@@ -13,3 +13,5 @@ docling
 replicate
 ibm-granite-community-utils @ git+https://github.com/ibm-granite-community/utils.git
 pillow
+protobuf==3.20.3
+chromadb==0.4.24
