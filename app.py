@@ -23,37 +23,56 @@ st.set_page_config(
     layout="wide"
 )
 
+# ── Custom CSS ───────────────────────────────────────────────
+st.markdown("""
+<style>
+    .main { background-color: #0e0e0e; }
+    .stApp { background-color: #0e0e0e; color: #ffffff; }
+    .answer-box {
+        background-color: #1a1a2e;
+        border-left: 4px solid #e10600;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 10px;
+        color: #ffffff;
+    }
+    .stButton > button {
+        background-color: #e10600;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+    }
+    .stButton > button:hover {
+        background-color: #ff1801;
+        color: white;
+    }
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+    }
+    .stTabs [data-baseweb="tab"] {
+        background-color: #1a1a1a;
+        border-radius: 6px;
+        color: white;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: #e10600 !important;
+        color: white !important;
+    }
+    .sidebar .sidebar-content {
+        background-color: #1a1a1a;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # ── Header ───────────────────────────────────────────────────
-st.title("🏎️ PitLane Explained")
-st.subheader("Your AI Race Day Companion for Casual F1 Fans")
+st.markdown("""
+<div style='text-align: center; padding: 10px 0 20px 0;'>
+    <h1 style='color: #e10600; font-size: 3em;'>🏎️ PitLane Explained</h1>
+    <p style='color: #cccccc; font-size: 1.2em;'>Your AI Race Day Companion — Powered by IBM Granite</p>
+</div>
+""", unsafe_allow_html=True)
 st.markdown("---")
-
-# ── Sidebar ──────────────────────────────────────────────────
-with st.sidebar:
-    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/250px-F1.svg.png", width=150)
-    st.markdown("### How to use")
-    st.markdown("""
-    1. Wait for the AI to load
-    2. Pick a feature tab
-    3. Ask any F1 question or get a race summary
-    """)
-    
-    st.markdown("### 💡 Try asking:")
-    example_questions = [
-        "What happens when a safety car is deployed?",
-        "Explain DRS to me",
-        "What is an undercut strategy?",
-        "How does qualifying work?",
-        "What do the flag colors mean?",
-        "What is a virtual safety car?"
-    ]
-    for q in example_questions:
-        if st.button(q, key=q):
-            st.session_state.selected_question = q
-
-    st.markdown("---")
-    beginner_mode = st.toggle("🟢 Beginner Mode", value=True)
-    st.caption("Beginner mode explains everything in simple terms")
 
 # ── Load models ──────────────────────────────────────────────
 @st.cache_resource(show_spinner="🔧 Loading AI models... this takes a minute")
@@ -163,7 +182,7 @@ with tab1:
                 output = safe_invoke(rag_chain, {"input": full_question})
                 
                 st.markdown("### 🏎️ Answer:")
-                st.markdown(output['answer'])
+                st.markdown(f"<div class='answer-box'>{output['answer']}</div>", unsafe_allow_html=True)
         else:
             st.warning("Please type a question first!")
 
@@ -185,3 +204,11 @@ with tab2:
             
             st.markdown("### 🏁 Race Story:")
             st.markdown(output['answer'])
+
+st.markdown("---")
+st.markdown("""
+<div style='text-align: center; color: #666; font-size: 0.8em;'>
+    Built with IBM Granite · Docling · LangChain · Streamlit<br>
+    IBM SkillsBuild AI Builders Challenge 2026
+</div>
+""", unsafe_allow_html=True)
