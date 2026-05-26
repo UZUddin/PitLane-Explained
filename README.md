@@ -1,7 +1,7 @@
 # 🏎️ PitLane Explained
 ### Your AI Race Day Companion for Casual F1 Fans
 
-🔗 **[Live App → pitlane-explained.streamlit.app](https://pitlane-explained.streamlit.app)**
+🔗 **Live App → [pitlane-explained.streamlit.app](https://pitlane-explained.streamlit.app)**
 
 ---
 
