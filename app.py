@@ -33,7 +33,17 @@ st.markdown("""
     
     /* White content area */
     .stApp { background-color: #f4f4f4; color: #1a1a1a; }
+
+    .block-container {
+    padding-top: 1rem !important;
+    max-width: 900px;
+    }
     
+    /* Remove default top padding */
+    [data-testid="stAppViewContainer"] > section > div {
+        padding-top: 1rem !important;
+    }
+
     /* Dark navy sidebar like F1 nav */
     [data-testid="stSidebar"] {
         background-color: #15151e;
@@ -179,11 +189,11 @@ st.markdown("""
 
 # ── Header ───────────────────────────────────────────────────
 st.markdown("""
-<div style='background-color: #15151e; padding: 24px 32px; margin-bottom: 24px; border-radius: 4px;'>
+<div style='background-color: #15151e; padding: 24px 32px; margin: 0 0 24px 0; border-radius: 4px;'>
     <div style='display: flex; align-items: center; gap: 14px;'>
         <div style='width: 4px; height: 30px; background-color: #e10600; border-radius: 1px; flex-shrink: 0;'></div>
         <div>
-            <div style='color: #ffffff; font-size: 1.5em; font-weight: 700; letter-spacing: -0.01em; font-family: Inter, sans-serif;'>PitLane Explained</div>
+            <div style='color: #ffffff; font-size: 1.5em; font-weight: 700; font-family: Inter, sans-serif;'>PitLane Explained</div>
             <div style='color: #666680; font-size: 0.75em; margin-top: 3px; letter-spacing: 0.1em; text-transform: uppercase; font-family: Inter, sans-serif;'>AI Race Day Companion &nbsp;·&nbsp; Powered by IBM Granite</div>
         </div>
     </div>
@@ -192,6 +202,8 @@ st.markdown("""
 
 # ── Sidebar ──────────────────────────────────────────────────
 with st.sidebar:
+
+    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/250px-F1.svg.png", width=120)
     st.markdown("### How to Use")
     st.markdown("""
     <p style='color: #666; font-size: 0.85em; line-height: 1.8;'>
