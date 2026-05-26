@@ -32,7 +32,7 @@ st.markdown("""
     }
     
     /* White content area */
-    .stApp { background-color: #ffffff; color: #1a1a1a; }
+    .stApp { background-color: #f4f4f4; color: #1a1a1a; }
     
     /* Dark navy sidebar like F1 nav */
     [data-testid="stSidebar"] {
@@ -179,16 +179,12 @@ st.markdown("""
 
 # ── Header ───────────────────────────────────────────────────
 st.markdown("""
-<div style='background-color: #15151e; margin: -4rem -4rem 2rem -4rem; padding: 28px 40px;'>
-    <div style='display: flex; align-items: center; gap: 16px;'>
-        <div style='width: 4px; height: 32px; background-color: #e10600; border-radius: 1px;'></div>
+<div style='background-color: #15151e; padding: 24px 32px; margin-bottom: 24px; border-radius: 4px;'>
+    <div style='display: flex; align-items: center; gap: 14px;'>
+        <div style='width: 4px; height: 30px; background-color: #e10600; border-radius: 1px; flex-shrink: 0;'></div>
         <div>
-            <h1 style='color: #ffffff; font-size: 1.6em; margin: 0; font-weight: 700; letter-spacing: -0.01em;'>
-                PitLane Explained
-            </h1>
-            <p style='color: #666680; font-size: 0.78em; margin: 4px 0 0 0; letter-spacing: 0.1em; text-transform: uppercase;'>
-                AI Race Day Companion &nbsp;·&nbsp; Powered by IBM Granite
-            </p>
+            <div style='color: #ffffff; font-size: 1.5em; font-weight: 700; letter-spacing: -0.01em; font-family: Inter, sans-serif;'>PitLane Explained</div>
+            <div style='color: #666680; font-size: 0.75em; margin-top: 3px; letter-spacing: 0.1em; text-transform: uppercase; font-family: Inter, sans-serif;'>AI Race Day Companion &nbsp;·&nbsp; Powered by IBM Granite</div>
         </div>
     </div>
 </div>
@@ -350,7 +346,7 @@ st.markdown("""
     <p style='margin-bottom: 6px;'>IBM SkillsBuild AI Builders Challenge 2026</p>
     <p>
         <a href='https://github.com/UZUddin/PitLane-Explained' target='_blank' style='color: #e10600; text-decoration: none; font-weight: 600;'>
-            ⭐ View on GitHub
+            View on GitHub
         </a>
     </p>
 </div>
