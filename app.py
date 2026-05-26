@@ -25,6 +25,13 @@ st.set_page_config(
 # ── Custom CSS ───────────────────────────────────────────────
 st.markdown("""
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    /* Apply font globally */
+    html, body, [class*="css"], .stApp {
+        font-family: 'Inter', sans-serif;
+    }
+    
     /* Clean white background */
     .stApp { background-color: #f8f9fa; color: #1a1a1a; }
     [data-testid="stSidebar"] { 
@@ -257,8 +264,18 @@ with tab2:
 # ── Footer ───────────────────────────────────────────────────
 st.markdown("---")
 st.markdown("""
-<div style='text-align: center; color: #666; font-size: 0.8em;'>
-    Built with IBM Granite · Docling · LangChain · Streamlit<br>
-    IBM SkillsBuild AI Builders Challenge 2026
+<div style='text-align: center; padding: 10px 0; color: #888888; font-size: 0.85em; font-family: Inter, sans-serif;'>
+    <p style='margin-bottom: 6px;'>
+        Built with 
+        <a href='https://www.ibm.com/granite' target='_blank' style='color: #e10600; text-decoration: none;'>IBM Granite</a> · 
+        <a href='https://www.docling.ai' target='_blank' style='color: #e10600; text-decoration: none;'>Docling</a> · 
+        LangChain · Streamlit
+    </p>
+    <p style='margin-bottom: 6px;'>IBM SkillsBuild AI Builders Challenge 2026</p>
+    <p>
+        <a href='https://github.com/UZUddin/PitLane-Explained' target='_blank' style='color: #e10600; text-decoration: none; font-weight: 600;'>
+            ⭐ View on GitHub
+        </a>
+    </p>
 </div>
 """, unsafe_allow_html=True)
