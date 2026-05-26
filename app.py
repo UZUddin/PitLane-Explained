@@ -26,6 +26,8 @@ st.set_page_config(
 st.markdown("""
 <style>
     .stApp { background-color: #0e0e0e; color: #ffffff; }
+    [data-testid="stSidebar"] { background-color: #1a1a1a; }
+    [data-testid="stSidebar"] * { color: #ffffff !important; }
     .answer-box {
         background-color: #1a1a2e;
         border-left: 4px solid #e10600;
@@ -45,14 +47,11 @@ st.markdown("""
         background-color: #ff1801;
         color: white;
     }
-    .stTabs [data-baseweb="tab"] {
-        background-color: #1a1a1a;
-        border-radius: 6px;
-        color: white;
-    }
-    .stTabs [aria-selected="true"] {
-        background-color: #e10600 !important;
-        color: white !important;
+    h1, h2, h3 { color: #ffffff !important; }
+    .stTextInput input { 
+        background-color: #1a1a1a; 
+        color: #ffffff;
+        border: 1px solid #e10600;
     }
 </style>
 """, unsafe_allow_html=True)
