@@ -34,10 +34,7 @@ st.markdown("""
     /* White content area */
     .stApp { background-color: #f4f4f4; color: #1a1a1a; }
 
-    .block-container {
-    padding-top: 1rem !important;
-    max-width: 900px;
-    }
+
     
     /* Remove default top padding */
     [data-testid="stAppViewContainer"] > section > div {
@@ -78,7 +75,7 @@ st.markdown("""
     
     /* Content area */
     .block-container {
-        padding-top: 0 !important;
+        padding-top: 2rem !important;
         max-width: 900px;
     }
     
