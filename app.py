@@ -25,45 +25,93 @@ st.set_page_config(
 # ── Custom CSS ───────────────────────────────────────────────
 st.markdown("""
 <style>
-    .stApp { background-color: #0e0e0e; color: #ffffff; }
-    [data-testid="stSidebar"] { background-color: #1a1a1a; }
+    /* Clean white background */
+    .stApp { background-color: #f8f9fa; color: #1a1a1a; }
+    [data-testid="stSidebar"] { 
+        background-color: #1a1a1a;
+        border-right: 3px solid #e10600;
+    }
     [data-testid="stSidebar"] * { color: #ffffff !important; }
+    [data-testid="stSidebar"] .stButton > button {
+        background-color: #e10600;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 500;
+        width: 100%;
+        text-align: left;
+        margin: 2px 0;
+    }
+    
+    /* Main content */
+    .block-container { padding-top: 2rem; }
+    
+    /* Answer box */
     .answer-box {
-        background-color: #1a1a2e;
+        background-color: #ffffff;
         border-left: 4px solid #e10600;
-        padding: 20px;
+        padding: 20px 24px;
         border-radius: 8px;
         margin-top: 10px;
-        color: #ffffff;
+        color: #1a1a1a;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        line-height: 1.7;
     }
-    .stButton > button {
+    
+    /* Ask button */
+    .stButton > button[kind="primary"] {
         background-color: #e10600;
         color: white;
         border: none;
         border-radius: 6px;
         font-weight: bold;
+        padding: 0.5rem 2rem;
     }
-    .stButton > button:hover {
-        background-color: #ff1801;
+    .stButton > button[kind="primary"]:hover {
+        background-color: #c00500;
         color: white;
     }
-    h1, h2, h3 { color: #ffffff !important; }
-    .stTextInput input { 
-        background-color: #1a1a1a; 
-        color: #ffffff;
-        border: 1px solid #e10600;
+    
+    /* Tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        border-bottom: 2px solid #e10600;
     }
+    .stTabs [data-baseweb="tab"] {
+        color: #666666;
+        font-weight: 500;
+    }
+    .stTabs [aria-selected="true"] {
+        color: #e10600 !important;
+        border-bottom: 2px solid #e10600 !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Text input */
+    .stTextInput input {
+        border: 1px solid #dddddd;
+        border-radius: 6px;
+        padding: 10px;
+        font-size: 1rem;
+    }
+    .stTextInput input:focus {
+        border-color: #e10600;
+        box-shadow: 0 0 0 1px #e10600;
+    }
+    
+    /* Success box */
+    .stAlert { border-radius: 8px; }
+    
+    /* Headers */
+    h1, h2, h3 { color: #1a1a1a; }
 </style>
 """, unsafe_allow_html=True)
-
 # ── Header ───────────────────────────────────────────────────
 st.markdown("""
-<div style='text-align: center; padding: 10px 0 20px 0;'>
-    <h1 style='color: #e10600; font-size: 3em;'>🏎️ PitLane Explained</h1>
-    <p style='color: #cccccc; font-size: 1.2em;'>Your AI Race Day Companion — Powered by IBM Granite</p>
+<div style='text-align: center; padding: 10px 0 20px 0; border-bottom: 3px solid #e10600; margin-bottom: 20px;'>
+    <h1 style='color: #e10600; font-size: 2.5em; margin-bottom: 5px;'>🏎️ PitLane Explained</h1>
+    <p style='color: #555555; font-size: 1.1em;'>Your AI Race Day Companion — Powered by IBM Granite</p>
 </div>
 """, unsafe_allow_html=True)
-st.markdown("---")
 
 # ── Sidebar ──────────────────────────────────────────────────
 with st.sidebar:
