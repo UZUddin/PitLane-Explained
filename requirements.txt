@@ -13,4 +13,4 @@ replicate
 pillow
 ibm-granite-community-utils @ git+https://github.com/ibm-granite-community/utils.git
 langchain-replicate @ git+https://github.com/ibm-granite-community/langchain-replicate.git
-protobuf>=4.21.0
+
