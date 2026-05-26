@@ -186,25 +186,32 @@ st.markdown("""
 
 # ── Header ───────────────────────────────────────────────────
 st.markdown("""
-<div style='text-align: center; padding: 10px 0 20px 0; border-bottom: 3px solid #e10600; margin-bottom: 20px;'>
-    <h1 style='color: #e10600; font-size: 2.5em; margin-bottom: 5px;'>🏎️ PitLane Explained</h1>
-    <p style='color: #555555; font-size: 1.1em;'>Your AI Race Day Companion — Powered by IBM Granite</p>
+<div style='padding: 20px 0 30px 0; border-bottom: 1px solid #2a2a2a; margin-bottom: 28px;'>
+    <div style='display: flex; align-items: center; gap: 12px; margin-bottom: 8px;'>
+        <div style='width: 4px; height: 36px; background-color: #c00500; border-radius: 2px;'></div>
+        <h1 style='color: #ffffff; font-size: 2em; margin: 0; font-weight: 700; letter-spacing: -0.02em;'>PitLane Explained</h1>
+    </div>
+    <p style='color: #555555; font-size: 0.9em; margin: 0 0 0 16px; letter-spacing: 0.03em;'>
+        AI Race Day Companion &nbsp;·&nbsp; Powered by IBM Granite
+    </p>
 </div>
 """, unsafe_allow_html=True)
 
 # ── Sidebar ──────────────────────────────────────────────────
 with st.sidebar:
-    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/250px-F1.svg.png", width=150)
-    st.markdown("### How to use")
+    st.markdown("### How to Use")
     st.markdown("""
-    1. Wait for the AI to load
-    2. Pick a feature tab
-    3. Ask any F1 question or get a race summary
-    """)
-    st.markdown("### 💡 Try asking:")
+    <p style='color: #666; font-size: 0.85em; line-height: 1.8;'>
+    1. Wait for AI to load<br>
+    2. Select a tab<br>
+    3. Ask a question or generate a race summary
+    </p>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("### Try Asking")
     example_questions = [
-        "What happens when a safety car is deployed?",
-        "Explain DRS to me",
+        "What happens during a safety car?",
+        "Explain DRS",
         "What is an undercut strategy?",
         "How does qualifying work?",
         "What do the flag colors mean?",
@@ -214,8 +221,8 @@ with st.sidebar:
         if st.button(q, key=q):
             st.session_state.selected_question = q
     st.markdown("---")
-    beginner_mode = st.toggle("🟢 Beginner Mode", value=True)
-    st.caption("Beginner mode explains everything in simple terms")
+    beginner_mode = st.toggle("Beginner Mode", value=True)
+    st.caption("Simplifies all explanations for new fans")
 
 # ── Load models ──────────────────────────────────────────────
 @st.cache_resource(show_spinner="🔧 Loading AI models... this takes a minute")
@@ -288,9 +295,9 @@ def safe_invoke(chain, input_dict, retries=3, wait=15):
 embeddings_model, embeddings_tokenizer, model = load_models()
 rag_chain = load_rag_chain(embeddings_model, embeddings_tokenizer, model)
 
-st.success("✅ AI ready! Ask me anything about F1.")
+st.success("AI ready! Ask me anything about F1.")
 
-tab1, tab2 = st.tabs(["💬 Ask Anything", "🏁 Race Summary"])
+tab1, tab2 = st.tabs(["Ask Anything", "Race Summary"])
 
 # ── Tab 1: Q&A ───────────────────────────────────────────────
 with tab1:
@@ -312,7 +319,7 @@ with tab1:
                 else:
                     full_question = question
                 output = safe_invoke(rag_chain, {"input": full_question})
-                st.markdown("### 🏎️ Answer:")
+                st.markdown("### Answer:")
                 st.markdown(f"<div class='answer-box'>{output['answer']}</div>", unsafe_allow_html=True)
         else:
             st.warning("Please type a question first!")
