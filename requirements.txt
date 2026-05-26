@@ -15,3 +15,4 @@ ibm-granite-community-utils @ git+https://github.com/ibm-granite-community/utils
 pillow
 protobuf==3.20.3
 chromadb==0.4.24
+numpy==1.26.4
