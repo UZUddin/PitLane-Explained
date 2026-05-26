@@ -25,93 +25,165 @@ st.set_page_config(
 # ── Custom CSS ───────────────────────────────────────────────
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     
-    /* Apply font globally */
     html, body, [class*="css"], .stApp {
         font-family: 'Inter', sans-serif;
     }
     
-    /* Clean white background */
-    .stApp { background-color: #f8f9fa; color: #1a1a1a; }
-    [data-testid="stSidebar"] { 
+    /* Background — dark charcoal not pure black */
+    .stApp { background-color: #111111; color: #e8e8e8; }
+    
+    /* Sidebar — slightly lighter than main */
+    [data-testid="stSidebar"] {
         background-color: #1a1a1a;
-        border-right: 3px solid #e10600;
+        border-right: 1px solid #2a2a2a;
     }
-    [data-testid="stSidebar"] * { color: #ffffff !important; }
+    [data-testid="stSidebar"] * { color: #cccccc !important; }
+    [data-testid="stSidebar"] h3 { 
+        color: #ffffff !important; 
+        font-size: 0.85em !important;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 600 !important;
+    }
+    
+    /* Sidebar buttons — subtle not loud */
     [data-testid="stSidebar"] .stButton > button {
-        background-color: #e10600;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        font-weight: 500;
+        background-color: transparent;
+        color: #aaaaaa !important;
+        border: 1px solid #2a2a2a;
+        border-radius: 4px;
+        font-weight: 400;
         width: 100%;
         text-align: left;
         margin: 2px 0;
+        font-size: 0.85em;
+        transition: all 0.2s;
+    }
+    [data-testid="stSidebar"] .stButton > button:hover {
+        border-color: #c00500;
+        color: #ffffff !important;
+        background-color: #1f1f1f;
     }
     
-    /* Main content */
-    .block-container { padding-top: 2rem; }
+    /* Main content padding */
+    .block-container { 
+        padding-top: 2.5rem;
+        max-width: 860px;
+    }
     
     /* Answer box */
     .answer-box {
-        background-color: #ffffff;
-        border-left: 4px solid #e10600;
-        padding: 20px 24px;
-        border-radius: 8px;
-        margin-top: 10px;
-        color: #1a1a1a;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        line-height: 1.7;
+        background-color: #1a1a1a;
+        border-left: 3px solid #c00500;
+        padding: 24px 28px;
+        border-radius: 4px;
+        margin-top: 12px;
+        color: #e0e0e0;
+        line-height: 1.8;
+        font-size: 0.95em;
     }
     
-    /* Ask button */
+    /* Primary button */
     .stButton > button[kind="primary"] {
-        background-color: #e10600;
+        background-color: #c00500;
         color: white;
         border: none;
-        border-radius: 6px;
-        font-weight: bold;
-        padding: 0.5rem 2rem;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9em;
+        letter-spacing: 0.05em;
+        padding: 0.5rem 1.8rem;
+        transition: background-color 0.2s;
     }
     .stButton > button[kind="primary"]:hover {
-        background-color: #c00500;
+        background-color: #a00400;
         color: white;
     }
     
     /* Tabs */
     .stTabs [data-baseweb="tab-list"] {
-        border-bottom: 2px solid #e10600;
+        background-color: transparent;
+        border-bottom: 1px solid #2a2a2a;
+        gap: 0;
     }
     .stTabs [data-baseweb="tab"] {
+        background-color: transparent;
         color: #666666;
         font-weight: 500;
+        font-size: 0.9em;
+        letter-spacing: 0.03em;
+        padding: 0.75rem 1.5rem;
+        border-bottom: 2px solid transparent;
     }
     .stTabs [aria-selected="true"] {
-        color: #e10600 !important;
-        border-bottom: 2px solid #e10600 !important;
-        font-weight: 700 !important;
+        color: #ffffff !important;
+        border-bottom: 2px solid #c00500 !important;
+        background-color: transparent !important;
     }
     
     /* Text input */
     .stTextInput input {
-        border: 1px solid #dddddd;
-        border-radius: 6px;
-        padding: 10px;
-        font-size: 1rem;
+        background-color: #1a1a1a;
+        border: 1px solid #2a2a2a;
+        border-radius: 4px;
+        color: #e0e0e0;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95em;
+        padding: 10px 14px;
     }
     .stTextInput input:focus {
-        border-color: #e10600;
-        box-shadow: 0 0 0 1px #e10600;
+        border-color: #c00500;
+        box-shadow: none;
+    }
+    .stTextInput input::placeholder { color: #555555; }
+    
+    /* Labels */
+    .stTextInput label { 
+        color: #888888 !important;
+        font-size: 0.8em !important;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 500 !important;
     }
     
-    /* Success box */
-    .stAlert { border-radius: 8px; }
+    /* Success/warning messages */
+    .stAlert { 
+        background-color: #1a1a1a !important;
+        border: 1px solid #2a2a2a !important;
+        border-radius: 4px;
+        color: #888888 !important;
+        font-size: 0.85em;
+    }
     
-    /* Headers */
-    h1, h2, h3 { color: #1a1a1a; }
+    /* Headings */
+    h1 { color: #ffffff; font-weight: 700; }
+    h2, h3 { 
+        color: #ffffff; 
+        font-weight: 600;
+        font-size: 1.1em;
+        letter-spacing: 0.02em;
+    }
+    
+    /* Toggle */
+    .stToggle label { color: #888888 !important; font-size: 0.85em !important; }
+    
+    /* Divider */
+    hr { border-color: #2a2a2a !important; }
+    
+    /* Caption */
+    .stCaption { color: #555555 !important; font-size: 0.75em !important; }
+    
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #111111; }
+    ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
 </style>
 """, unsafe_allow_html=True)
+
+
+
 # ── Header ───────────────────────────────────────────────────
 st.markdown("""
 <div style='text-align: center; padding: 10px 0 20px 0; border-bottom: 3px solid #e10600; margin-bottom: 20px;'>
