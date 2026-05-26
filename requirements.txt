@@ -1,18 +1,15 @@
-streamlit
-langchain
-langchain-community
-langchain-classic
-langchain-core
-langchain-huggingface
-langchain-chroma
-langchain-replicate @ git+https://github.com/ibm-granite-community/langchain-replicate.git
-sentence-transformers
+streamlit==1.45.1
+langchain==0.3.25
+langchain-community==0.3.24
+langchain-core==0.3.59
+langchain-huggingface==0.1.2
+langchain-chroma==0.2.4
+sentence-transformers==3.4.1
 transformers==4.49.0
-chromadb
-docling
-replicate
-ibm-granite-community-utils @ git+https://github.com/ibm-granite-community/utils.git
-pillow
-protobuf==3.20.3
 chromadb==0.4.24
+docling==2.31.0
+replicate==1.0.4
+pillow==10.4.0
+protobuf==3.20.3
 numpy==1.26.4
+langchain-classic==1.0.7
