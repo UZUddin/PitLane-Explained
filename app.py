@@ -31,154 +31,147 @@ st.markdown("""
         font-family: 'Inter', sans-serif;
     }
     
-    /* Background — dark charcoal not pure black */
-    .stApp { background-color: #111111; color: #e8e8e8; }
+    /* White content area */
+    .stApp { background-color: #ffffff; color: #1a1a1a; }
     
-    /* Sidebar — slightly lighter than main */
+    /* Dark navy sidebar like F1 nav */
     [data-testid="stSidebar"] {
-        background-color: #1a1a1a;
-        border-right: 1px solid #2a2a2a;
+        background-color: #15151e;
+        border-right: none;
     }
-    [data-testid="stSidebar"] * { color: #cccccc !important; }
-    [data-testid="stSidebar"] h3 { 
-        color: #ffffff !important; 
-        font-size: 0.85em !important;
+    [data-testid="stSidebar"] * { color: #ffffff !important; }
+    [data-testid="stSidebar"] h3 {
+        color: #ffffff !important;
+        font-size: 0.75em !important;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.12em;
         font-weight: 600 !important;
+        margin-top: 20px;
     }
-    
-    /* Sidebar buttons — subtle not loud */
     [data-testid="stSidebar"] .stButton > button {
         background-color: transparent;
         color: #aaaaaa !important;
-        border: 1px solid #2a2a2a;
-        border-radius: 4px;
+        border: 1px solid #2a2a3a;
+        border-radius: 3px;
         font-weight: 400;
         width: 100%;
         text-align: left;
         margin: 2px 0;
-        font-size: 0.85em;
-        transition: all 0.2s;
+        font-size: 0.82em;
+        padding: 8px 12px;
     }
     [data-testid="stSidebar"] .stButton > button:hover {
-        border-color: #c00500;
+        border-color: #e10600;
         color: #ffffff !important;
-        background-color: #1f1f1f;
+        background-color: #1f1f2e;
     }
     
-    /* Main content padding */
-    .block-container { 
-        padding-top: 2.5rem;
-        max-width: 860px;
+    /* Content area */
+    .block-container {
+        padding-top: 0 !important;
+        max-width: 900px;
     }
     
     /* Answer box */
     .answer-box {
-        background-color: #1a1a1a;
-        border-left: 3px solid #c00500;
+        background-color: #f8f8f8;
+        border-left: 3px solid #e10600;
         padding: 24px 28px;
-        border-radius: 4px;
+        border-radius: 3px;
         margin-top: 12px;
-        color: #e0e0e0;
+        color: #1a1a1a;
         line-height: 1.8;
         font-size: 0.95em;
     }
     
     /* Primary button */
     .stButton > button[kind="primary"] {
-        background-color: #c00500;
+        background-color: #e10600;
         color: white;
         border: none;
-        border-radius: 4px;
+        border-radius: 3px;
         font-weight: 600;
-        font-size: 0.9em;
-        letter-spacing: 0.05em;
-        padding: 0.5rem 1.8rem;
-        transition: background-color 0.2s;
+        font-size: 0.85em;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.5rem 2rem;
     }
     .stButton > button[kind="primary"]:hover {
-        background-color: #a00400;
+        background-color: #c00500;
         color: white;
     }
     
     /* Tabs */
     .stTabs [data-baseweb="tab-list"] {
         background-color: transparent;
-        border-bottom: 1px solid #2a2a2a;
+        border-bottom: 2px solid #eeeeee;
         gap: 0;
     }
     .stTabs [data-baseweb="tab"] {
         background-color: transparent;
-        color: #666666;
+        color: #999999;
         font-weight: 500;
-        font-size: 0.9em;
-        letter-spacing: 0.03em;
+        font-size: 0.85em;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
         padding: 0.75rem 1.5rem;
-        border-bottom: 2px solid transparent;
     }
     .stTabs [aria-selected="true"] {
-        color: #ffffff !important;
-        border-bottom: 2px solid #c00500 !important;
+        color: #1a1a1a !important;
+        border-bottom: 2px solid #e10600 !important;
         background-color: transparent !important;
+        font-weight: 700 !important;
     }
     
     /* Text input */
     .stTextInput input {
-        background-color: #1a1a1a;
-        border: 1px solid #2a2a2a;
-        border-radius: 4px;
-        color: #e0e0e0;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 3px;
+        color: #1a1a1a;
         font-family: 'Inter', sans-serif;
         font-size: 0.95em;
         padding: 10px 14px;
     }
     .stTextInput input:focus {
-        border-color: #c00500;
+        border-color: #e10600;
         box-shadow: none;
     }
-    .stTextInput input::placeholder { color: #555555; }
+    .stTextInput input::placeholder { color: #aaaaaa; }
     
     /* Labels */
-    .stTextInput label { 
-        color: #888888 !important;
-        font-size: 0.8em !important;
+    .stTextInput label {
+        color: #666666 !important;
+        font-size: 0.75em !important;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
-        font-weight: 500 !important;
+        letter-spacing: 0.1em;
+        font-weight: 600 !important;
     }
     
-    /* Success/warning messages */
-    .stAlert { 
-        background-color: #1a1a1a !important;
-        border: 1px solid #2a2a2a !important;
-        border-radius: 4px;
-        color: #888888 !important;
+    /* Success message */
+    .stAlert {
+        background-color: #f8f8f8 !important;
+        border: 1px solid #eeeeee !important;
+        border-radius: 3px;
         font-size: 0.85em;
     }
     
     /* Headings */
-    h1 { color: #ffffff; font-weight: 700; }
-    h2, h3 { 
-        color: #ffffff; 
+    h1 { color: #15151e; font-weight: 700; }
+    h2, h3, h4 {
+        color: #15151e;
         font-weight: 600;
-        font-size: 1.1em;
-        letter-spacing: 0.02em;
+        letter-spacing: -0.01em;
     }
     
     /* Toggle */
-    .stToggle label { color: #888888 !important; font-size: 0.85em !important; }
+    .stToggle label { color: #666666 !important; font-size: 0.82em !important; }
     
     /* Divider */
-    hr { border-color: #2a2a2a !important; }
+    hr { border-color: #eeeeee !important; }
     
     /* Caption */
-    .stCaption { color: #555555 !important; font-size: 0.75em !important; }
-    
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: #111111; }
-    ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+    .stCaption { color: #999999 !important; font-size: 0.75em !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -186,14 +179,18 @@ st.markdown("""
 
 # ── Header ───────────────────────────────────────────────────
 st.markdown("""
-<div style='padding: 20px 0 30px 0; border-bottom: 1px solid #2a2a2a; margin-bottom: 28px;'>
-    <div style='display: flex; align-items: center; gap: 12px; margin-bottom: 8px;'>
-        <div style='width: 4px; height: 36px; background-color: #c00500; border-radius: 2px;'></div>
-        <h1 style='color: #ffffff; font-size: 2em; margin: 0; font-weight: 700; letter-spacing: -0.02em;'>PitLane Explained</h1>
+<div style='background-color: #15151e; margin: -4rem -4rem 2rem -4rem; padding: 28px 40px;'>
+    <div style='display: flex; align-items: center; gap: 16px;'>
+        <div style='width: 4px; height: 32px; background-color: #e10600; border-radius: 1px;'></div>
+        <div>
+            <h1 style='color: #ffffff; font-size: 1.6em; margin: 0; font-weight: 700; letter-spacing: -0.01em;'>
+                PitLane Explained
+            </h1>
+            <p style='color: #666680; font-size: 0.78em; margin: 4px 0 0 0; letter-spacing: 0.1em; text-transform: uppercase;'>
+                AI Race Day Companion &nbsp;·&nbsp; Powered by IBM Granite
+            </p>
+        </div>
     </div>
-    <p style='color: #555555; font-size: 0.9em; margin: 0 0 0 16px; letter-spacing: 0.03em;'>
-        AI Race Day Companion &nbsp;·&nbsp; Powered by IBM Granite
-    </p>
 </div>
 """, unsafe_allow_html=True)
 
