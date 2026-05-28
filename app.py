@@ -14,6 +14,9 @@ from ibm_granite_community.langchain.chains.combine_documents import create_stuf
 from langchain_classic.chains.retrieval import create_retrieval_chain
 from langchain_replicate import ChatReplicate
 import itertools
+# ── Set environment variables immediately ────────────────────
+os.environ["REPLICATE_API_TOKEN"] = st.secrets["REPLICATE_API_TOKEN"]
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = st.secrets.get("PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION", "python")
 
 # ── Page config ──────────────────────────────────────────────
 st.set_page_config(
