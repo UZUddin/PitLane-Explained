@@ -13,9 +13,9 @@ PitLane Explained is an AI-powered race day companion that lets anyone ask plain
 
 ## Features
 - **💬 Ask Anything** — Type any F1 question and get a plain-English answer grounded in official race data
-- **🏁 Race Summary** — Get an engaging narrative summary of a race written for casual fans
+- **🏁 Race Summary** — Get an engaging narrative summary of a race written for casual fans, with a live podium visualization showing the top 3 finishers
 - **🟢 Beginner Mode** — Toggle on to get every answer explained as if you've never watched F1
-
+  
 ## Technical Approach
 - **IBM Granite** (`granite-4.1-8b`) — LLM for answer generation and race summaries
 - **IBM Granite Embeddings** (`granite-embedding-small-english-r2`) — Text embeddings for semantic search
