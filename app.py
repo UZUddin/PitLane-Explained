@@ -282,52 +282,28 @@ def load_rag_chain(_embeddings_model, _embeddings_tokenizer, _model):
 
 
 def show_podium():
-    st.markdown("""
-    <div style='display: flex; justify-content: center; align-items: flex-end; gap: 16px; padding: 24px 0; font-family: Inter, sans-serif;'>
-        
-        <!-- 2nd Place -->
-        <div style='text-align: center;'>
-            <div style='font-size: 0.8em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em;'>2nd</div>
-            <div style='font-size: 0.9em; font-weight: 600; color: #1a1a1a; margin-bottom: 6px;'>Carlos Sainz</div>
-            <div style='font-size: 0.75em; color: #e10600; margin-bottom: 8px;'>Ferrari</div>
-            <div style='background: linear-gradient(to bottom, #C0C0C0, #A8A8A8); 
-                        height: 80px; width: 100px; border-radius: 4px 4px 0 0;
-                        display: flex; align-items: center; justify-content: center;'>
-                <span style='font-size: 2em; font-weight: 700; color: white;'>2</span>
-            </div>
-        </div>
-        
-        <!-- 1st Place -->
-        <div style='text-align: center;'>
-            <div style='font-size: 0.8em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em;'>1st</div>
-            <div style='font-size: 0.9em; font-weight: 600; color: #1a1a1a; margin-bottom: 6px;'>Charles Leclerc</div>
-            <div style='font-size: 0.75em; color: #e10600; margin-bottom: 8px;'>Ferrari</div>
-            <div style='background: linear-gradient(to bottom, #FFD700, #FFA500);
-                        height: 120px; width: 100px; border-radius: 4px 4px 0 0;
-                        display: flex; align-items: center; justify-content: center;'>
-                <span style='font-size: 2em; font-weight: 700; color: white;'>1</span>
-            </div>
-        </div>
-        
-        <!-- 3rd Place -->
-        <div style='text-align: center;'>
-            <div style='font-size: 0.8em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em;'>3rd</div>
-            <div style='font-size: 0.9em; font-weight: 600; color: #1a1a1a; margin-bottom: 6px;'>Oscar Piastri</div>
-            <div style='font-size: 0.75em; color: #FF8000; margin-bottom: 8px;'>McLaren</div>
-            <div style='background: linear-gradient(to bottom, #CD7F32, #A0522D);
-                        height: 60px; width: 100px; border-radius: 4px 4px 0 0;
-                        display: flex; align-items: center; justify-content: center;'>
-                <span style='font-size: 2em; font-weight: 700; color: white;'>3</span>
-            </div>
-        </div>
-        
-    </div>
-    <div style='text-align: center; font-size: 0.75em; color: #999; text-transform: uppercase; 
-                letter-spacing: 0.1em; border-top: 1px solid #eeeeee; padding-top: 12px;'>
-        2024 Monaco Grand Prix — Final Podium
-    </div>
-    """, unsafe_allow_html=True)
+    # Podium visualization using native Streamlit
+col2, col1, col3 = st.columns([1, 1, 1])
 
+with col1:
+    st.markdown("<div style='text-align:center; font-size:0.75em; color:#999; text-transform:uppercase; letter-spacing:0.08em;'>1st Place</div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align:center; font-weight:600;'>Charles Leclerc</div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align:center; font-size:0.8em; color:#e10600;'>Ferrari</div>", unsafe_allow_html=True)
+    st.markdown("<div style='background:linear-gradient(to bottom, #FFD700, #FFA500); height:120px; border-radius:4px 4px 0 0; display:flex; align-items:center; justify-content:center;'><span style='font-size:2.5em; font-weight:700; color:white;'>1</span></div>", unsafe_allow_html=True)
+
+with col2:
+    st.markdown("<div style='text-align:center; font-size:0.75em; color:#999; text-transform:uppercase; letter-spacing:0.08em;'>2nd Place</div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align:center; font-weight:600;'>Carlos Sainz</div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align:center; font-size:0.8em; color:#e10600;'>Ferrari</div>", unsafe_allow_html=True)
+    st.markdown("<div style='background:linear-gradient(to bottom, #C0C0C0, #A8A8A8); height:80px; border-radius:4px 4px 0 0; display:flex; align-items:center; justify-content:center;'><span style='font-size:2.5em; font-weight:700; color:white;'>2</span></div>", unsafe_allow_html=True)
+
+with col3:
+    st.markdown("<div style='text-align:center; font-size:0.75em; color:#999; text-transform:uppercase; letter-spacing:0.08em;'>3rd Place</div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align:center; font-weight:600;'>Oscar Piastri</div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align:center; font-size:0.8em; color:#FF8000;'>McLaren</div>", unsafe_allow_html=True)
+    st.markdown("<div style='background:linear-gradient(to bottom, #CD7F32, #A0522D); height:60px; border-radius:4px 4px 0 0; display:flex; align-items:center; justify-content:center;'><span style='font-size:2.5em; font-weight:700; color:white;'>3</span></div>", unsafe_allow_html=True)
+
+st.markdown("<div style='text-align:center; font-size:0.75em; color:#999; text-transform:uppercase; letter-spacing:0.1em; border-top:1px solid #eee; padding-top:12px; margin:12px 0 20px 0;'>2024 Monaco Grand Prix — Final Podium</div>", unsafe_allow_html=True)
 # ── Safe invoke ──────────────────────────────────────────────
 def safe_invoke(chain, input_dict, retries=3, wait=15):
     for attempt in range(retries):
