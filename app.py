@@ -281,7 +281,7 @@ def load_rag_chain(_embeddings_model, _embeddings_tokenizer, _model):
     return rag_chain
 
 
-    with tab2:
+with tab2:
     st.markdown("### 2024 Monaco Grand Prix")
     st.markdown("<p style='color: #666; font-size: 0.9em;'>A race story written for fans new to the sport.</p>", unsafe_allow_html=True)
     
