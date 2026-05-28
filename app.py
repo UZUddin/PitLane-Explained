@@ -280,6 +280,54 @@ def load_rag_chain(_embeddings_model, _embeddings_tokenizer, _model):
     )
     return rag_chain
 
+
+def show_podium():
+    st.markdown("""
+    <div style='display: flex; justify-content: center; align-items: flex-end; gap: 16px; padding: 24px 0; font-family: Inter, sans-serif;'>
+        
+        <!-- 2nd Place -->
+        <div style='text-align: center;'>
+            <div style='font-size: 0.8em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em;'>2nd</div>
+            <div style='font-size: 0.9em; font-weight: 600; color: #1a1a1a; margin-bottom: 6px;'>Carlos Sainz</div>
+            <div style='font-size: 0.75em; color: #e10600; margin-bottom: 8px;'>Ferrari</div>
+            <div style='background: linear-gradient(to bottom, #C0C0C0, #A8A8A8); 
+                        height: 80px; width: 100px; border-radius: 4px 4px 0 0;
+                        display: flex; align-items: center; justify-content: center;'>
+                <span style='font-size: 2em; font-weight: 700; color: white;'>2</span>
+            </div>
+        </div>
+        
+        <!-- 1st Place -->
+        <div style='text-align: center;'>
+            <div style='font-size: 0.8em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em;'>1st</div>
+            <div style='font-size: 0.9em; font-weight: 600; color: #1a1a1a; margin-bottom: 6px;'>Charles Leclerc</div>
+            <div style='font-size: 0.75em; color: #e10600; margin-bottom: 8px;'>Ferrari</div>
+            <div style='background: linear-gradient(to bottom, #FFD700, #FFA500);
+                        height: 120px; width: 100px; border-radius: 4px 4px 0 0;
+                        display: flex; align-items: center; justify-content: center;'>
+                <span style='font-size: 2em; font-weight: 700; color: white;'>1</span>
+            </div>
+        </div>
+        
+        <!-- 3rd Place -->
+        <div style='text-align: center;'>
+            <div style='font-size: 0.8em; color: #666; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em;'>3rd</div>
+            <div style='font-size: 0.9em; font-weight: 600; color: #1a1a1a; margin-bottom: 6px;'>Oscar Piastri</div>
+            <div style='font-size: 0.75em; color: #FF8000; margin-bottom: 8px;'>McLaren</div>
+            <div style='background: linear-gradient(to bottom, #CD7F32, #A0522D);
+                        height: 60px; width: 100px; border-radius: 4px 4px 0 0;
+                        display: flex; align-items: center; justify-content: center;'>
+                <span style='font-size: 2em; font-weight: 700; color: white;'>3</span>
+            </div>
+        </div>
+        
+    </div>
+    <div style='text-align: center; font-size: 0.75em; color: #999; text-transform: uppercase; 
+                letter-spacing: 0.1em; border-top: 1px solid #eeeeee; padding-top: 12px;'>
+        2024 Monaco Grand Prix — Final Podium
+    </div>
+    """, unsafe_allow_html=True)
+
 # ── Safe invoke ──────────────────────────────────────────────
 def safe_invoke(chain, input_dict, retries=3, wait=15):
     for attempt in range(retries):
@@ -327,10 +375,49 @@ with tab1:
             st.warning("Please type a question first!")
 
 # ── Tab 2: Race Summary ──────────────────────────────────────
+# ── Tab 2: Race Summary ──────────────────────────────────────
 with tab2:
-    st.markdown("### Get the story of a race")
-    st.markdown("Get an engaging summary of the 2024 Monaco Grand Prix written for casual fans.")
-    if st.button("Generate Race Story 🏁", type="primary"):
+    st.markdown("### 2024 Monaco Grand Prix")
+    st.markdown("<p style='color: #666; font-size: 0.9em;'>A race story written for fans new to the sport.</p>", unsafe_allow_html=True)
+    
+    # Podium visualization
+    st.markdown("""
+    <div style='display: flex; justify-content: center; align-items: flex-end; gap: 16px; padding: 24px 0; font-family: Inter, sans-serif;'>
+        
+        <div style='text-align: center;'>
+            <div style='font-size: 0.75em; color: #999; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em;'>2nd</div>
+            <div style='font-size: 0.85em; font-weight: 600; color: #1a1a1a; margin-bottom: 4px;'>Carlos Sainz</div>
+            <div style='font-size: 0.75em; color: #e10600; margin-bottom: 8px; font-weight: 500;'>Ferrari</div>
+            <div style='background: linear-gradient(to bottom, #C0C0C0, #A8A8A8); height: 80px; width: 110px; border-radius: 4px 4px 0 0; display: flex; align-items: center; justify-content: center;'>
+                <span style='font-size: 2em; font-weight: 700; color: white;'>2</span>
+            </div>
+        </div>
+        
+        <div style='text-align: center;'>
+            <div style='font-size: 0.75em; color: #999; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em;'>1st</div>
+            <div style='font-size: 0.85em; font-weight: 600; color: #1a1a1a; margin-bottom: 4px;'>Charles Leclerc</div>
+            <div style='font-size: 0.75em; color: #e10600; margin-bottom: 8px; font-weight: 500;'>Ferrari</div>
+            <div style='background: linear-gradient(to bottom, #FFD700, #FFA500); height: 120px; width: 110px; border-radius: 4px 4px 0 0; display: flex; align-items: center; justify-content: center;'>
+                <span style='font-size: 2em; font-weight: 700; color: white;'>1</span>
+            </div>
+        </div>
+        
+        <div style='text-align: center;'>
+            <div style='font-size: 0.75em; color: #999; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em;'>3rd</div>
+            <div style='font-size: 0.85em; font-weight: 600; color: #1a1a1a; margin-bottom: 4px;'>Oscar Piastri</div>
+            <div style='font-size: 0.75em; color: #FF8000; margin-bottom: 8px; font-weight: 500;'>McLaren</div>
+            <div style='background: linear-gradient(to bottom, #CD7F32, #A0522D); height: 60px; width: 110px; border-radius: 4px 4px 0 0; display: flex; align-items: center; justify-content: center;'>
+                <span style='font-size: 2em; font-weight: 700; color: white;'>3</span>
+            </div>
+        </div>
+        
+    </div>
+    <div style='text-align: center; font-size: 0.75em; color: #999; text-transform: uppercase; letter-spacing: 0.1em; border-top: 1px solid #eeeeee; padding-top: 12px; margin-bottom: 20px;'>
+        Final Podium
+    </div>
+    """, unsafe_allow_html=True)
+    
+    if st.button("Generate Race Story", type="primary"):
         with st.spinner("Generating race story..."):
             summary_prompt = """
             Give me a short, engaging 3-paragraph summary of the 2024 Monaco Grand Prix 
@@ -339,9 +426,8 @@ with tab2:
             Use simple language and avoid technical jargon.
             """
             output = safe_invoke(rag_chain, {"input": summary_prompt})
-            st.markdown("### 🏁 Race Story:")
+            st.markdown("### Race Story")
             st.markdown(f"<div class='answer-box'>{output['answer']}</div>", unsafe_allow_html=True)
-
 # ── Footer ───────────────────────────────────────────────────
 st.markdown("---")
 st.markdown("""
