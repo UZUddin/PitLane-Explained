@@ -281,10 +281,12 @@ def load_rag_chain(_embeddings_model, _embeddings_tokenizer, _model):
     return rag_chain
 
 
-def show_podium():
-    # Podium visualization using native Streamlit
-    col2, col1, col3 = st.columns([1, 1, 1])
+    with tab2:
+    st.markdown("### 2024 Monaco Grand Prix")
+    st.markdown("<p style='color: #666; font-size: 0.9em;'>A race story written for fans new to the sport.</p>", unsafe_allow_html=True)
     
+    # Podium visualization
+    col2, col1, col3 = st.columns([1, 1, 1])
     with col1:
         st.markdown("<div style='text-align:center; font-size:0.75em; color:#999; text-transform:uppercase; letter-spacing:0.08em;'>1st Place</div>", unsafe_allow_html=True)
         st.markdown("<div style='text-align:center; font-weight:600;'>Charles Leclerc</div>", unsafe_allow_html=True)
@@ -304,6 +306,23 @@ def show_podium():
         st.markdown("<div style='background:linear-gradient(to bottom, #CD7F32, #A0522D); height:60px; border-radius:4px 4px 0 0; display:flex; align-items:center; justify-content:center;'><span style='font-size:2.5em; font-weight:700; color:white;'>3</span></div>", unsafe_allow_html=True)
     
     st.markdown("<div style='text-align:center; font-size:0.75em; color:#999; text-transform:uppercase; letter-spacing:0.1em; border-top:1px solid #eee; padding-top:12px; margin:12px 0 20px 0;'>2024 Monaco Grand Prix — Final Podium</div>", unsafe_allow_html=True)
+    st.markdown("---")
+    
+    if st.button("Generate Race Story", type="primary"):
+        with st.spinner("Generating race story..."):
+            summary_prompt = """
+            Give me a short, engaging 3-paragraph summary of the 2024 Monaco Grand Prix 
+            written for someone who has never watched F1 before. Explain what happened, 
+            why it was exciting, and what made the winner's victory special. 
+            Use simple language and avoid technical jargon.
+            """
+            output = safe_invoke(rag_chain, {"input": summary_prompt})
+            st.markdown("### Race Story")
+            st.markdown(f"<div class='answer-box'>{output['answer']}</div>", unsafe_allow_html=True)
+
+
+
+
 # ── Safe invoke ──────────────────────────────────────────────
 def safe_invoke(chain, input_dict, retries=3, wait=15):
     for attempt in range(retries):
